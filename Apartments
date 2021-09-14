@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+#define intt long long int 
+using namespace std;
+int main()
+{
+   intt n , m , k;
+   cin>>n>>m>>k; 
+   intt a[n] , b[m] ;
+   for(intt i=0 ; i<n ;i++)
+   {
+      cin>>a[i] ;       // desired apartment sizes
+   }    
+   for(intt i=0 ; i<m ; i++)
+   {
+     cin>>b[i] ;       // size of each apartment
+   }
+   sort(a, a+n) ;
+   sort(b, b+m) ;
+   intt count=0 ; 
+  
+  for(int i=0 , j=0 ; i<n , j<m ; )
+  {
+     if(abs(a[i]-b[j])<=k)
+      {
+        count++ ;
+        i++ ;
+        j++ ;
+      }
+      else if(a[i]<b[j])
+      i++ ;
+      else
+      j++ ;
+  }
+   
+   cout<<count<<endl;
+ 
+   return 0 ;
+}
